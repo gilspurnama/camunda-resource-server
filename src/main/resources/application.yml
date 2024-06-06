@@ -1,0 +1,18 @@
+server:
+  port: 8181
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_ISSUE_URI:http://localhost:8989/realms/master-dynamic}
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/camunda?currentSchema=public}
+    username: ${DATASOURCE_USER:postgres}
+    password: ${DATASOURCE_PASSWORD:123456}
